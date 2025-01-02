@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Example</title>
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            transition: background-color 0.5s ease, color 0.5s ease; 
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; 
+        }
+
+    
+        p:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Color Change Demo!</h1>
+    <p id="text">This text will change color when you click the button below.</p>
+
+    <div class="button-container">
+        <button onclick="changeColor()">Click to Change Background and Text Color</button>
+        <br>
+        <button onclick="changeTextColor()">Click to Change Text Color</button>
+    </div>
+
+    <script>
+       
+        function changeColor() {
+           
+            document.body.style.backgroundColor = getRandomColor();
+          
+            document.querySelector('h1').style.color = getRandomColor();
+            document.getElementById('text').style.color = getRandomColor();
+        }
+
+        
+        function changeTextColor() {
+         
+            document.getElementById('text').style.color = getRandomColor();
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
+</body>
+</html>
